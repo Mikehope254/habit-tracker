@@ -4,7 +4,7 @@ import {
   createhabit,
   updateHabit,
   deleteHabit,
-} from "../controllers/controllers.js";
+} from "../controllers/habit.controllers.js";
 
 const router = express.Router();
 

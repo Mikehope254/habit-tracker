@@ -6,6 +6,10 @@ const habitSchema = new mongoose.Schema(
       type: String,
       mandatory: true,
     },
+    frequency: {
+      type: String,
+      mandatory: true,
+    },
   },
   {
     timestamps: true,
