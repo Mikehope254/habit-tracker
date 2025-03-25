@@ -5,10 +5,17 @@ const habitSchema = new mongoose.Schema(
     name: {
       type: String,
       mandatory: true,
+      trim: true,
     },
     frequency: {
       type: String,
       mandatory: true,
+      enum: ["Daily", "Weekly", "Monthly"],
+    },
+    time: {
+      type: String,
+      mandatory: true,
+      enum: ["Morning", "Afternoon", "Evening", "Night"],
     },
   },
   {

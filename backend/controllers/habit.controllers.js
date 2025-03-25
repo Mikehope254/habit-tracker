@@ -1,4 +1,4 @@
-import Habit from "../model/habit.model";
+import Habit from "../model/habit.model.js";
 import mongoose from "mongoose";
 
 export const getHabit = async (req, res) => {
@@ -18,7 +18,7 @@ export const createhabit = async (req, res) => {
   const habit = req.body; //user input to create habit-- Variable to hold user input
 
   //simulation missing fields error
-  if (!habit.name || !habit.frequency) {
+  if (!habit.name || !habit.frequency || !habit.time) {
     return res.status(400).json({
       success: false,
       message: "Please input All Fields",
