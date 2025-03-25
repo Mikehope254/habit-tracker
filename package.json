@@ -1,10 +1,9 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "type": "module",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon backend/server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +16,15 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mikehope254/habit-tracker.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Mikehope254/habit-tracker/issues"
+  },
+  "homepage": "https://github.com/Mikehope254/habit-tracker#readme",
+  "description": ""
 }
