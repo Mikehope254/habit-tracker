@@ -4,7 +4,11 @@ import mongoose from "mongoose";
 export const getHabit = async (req, res) => {
   try {
     const habits = await Habit.find({}); //results from Habit.find are stored in variable 'Habits'
-    res.status(200).json({ success: true, data: habits });
+    res.status(200).json({
+      success: true,
+      message: "Habits retrieved successfully",
+      data: habits,
+    });
   } catch (error) {
     console.log("Error in fetching your habits", error.message);
     res
