@@ -12,12 +12,31 @@ export default function HabitForm() {
   };
 
   return (
-    <div>
-      <p>Hello (HabitForm)</p>
-      <form onSubmit={handleSubmit}>
-        {/*inputs for name, frequency, time*/}
-        <button type="submit">Add Habit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <h2>Add a habit</h2>
+      <input
+        type="text"
+        placeholder="Habit name"
+        name="name"
+        value={form.name}
+        onChange={(e) => setForm({ ...form, name: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Habit Frequency"
+        name="frequency"
+        value={form.frequency}
+        onChange={(e) => setForm({ ...form, frequency: e.target.value })}
+      />
+      <input
+        type="text"
+        placeholder="Habit Time"
+        name="time"
+        value={form.time}
+        onChange={(e) => setForm({ ...form, time: e.target.value })}
+      />
+
+      <button type="submit">Add Habit</button>
+    </form>
   );
 }
