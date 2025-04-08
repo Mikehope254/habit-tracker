@@ -52,3 +52,5 @@ const useHabitStore = create((set) => ({
       ),
     })),
 }));
+
+export default useHabitStore;
