@@ -64,7 +64,7 @@ const HabitCalendar = ({
               className="cell"
               onClick={() => handleToggle(habit.id, date)}
             >
-              {habit.completedDates.includes(date) ? "✔" : ""}
+              {(habit.completedDates || []).includes(date) ? "✔" : ""}
             </div>
           ))}
         </div>
