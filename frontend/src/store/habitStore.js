@@ -33,6 +33,11 @@ const useHabitStore = create((set) => ({
   fetchHabits: async () => {
     try {
       const res = await fetch("/api/habits");
+      if (!res.ok) {
+        const text = await res.text();
+        console.error("Fetch habits failed", res.status, text);
+        return;
+      }
       const data = await res.json();
       set({ habits: data.data });
     } catch (error) {
@@ -50,6 +55,23 @@ const useHabitStore = create((set) => ({
       habits: state.habits.map((habit) =>
         habit._id === id ? updatedHabit : habit
       ),
+    })),
+
+  toggleHabitDate: (habitId, date) =>
+    set((state) => ({
+      habits: state.habits.map((habit) => {
+        if (habit._id !== habitId) return habit;
+
+        const isCompleted = habit.completedDates.includes(date);
+        const updatedDates = isCompleted
+          ? habit.completedDates.filter((d) => d !== date)
+          : [...habit.completedDates, date];
+
+        return {
+          ...habit,
+          completedDates: updatedDates,
+        };
+      }),
     })),
 }));
 
