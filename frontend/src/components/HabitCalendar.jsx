@@ -1,12 +1,6 @@
 import React from "react";
 import "../styles/HabitCalendar.css";
 
-const sampleHabits = [
-  { id: "1", name: "Exercise", completedDates: ["2023-04-01", "2023-04-03"] },
-  { id: "2", name: "Read", completedDates: ["2023-04-02", "2023-04-04"] },
-  { id: "3", name: "Meditate", completedDates: ["2023-04-03"] },
-];
-
 // Generate a list of dates for a week (or a month) — you can replace this with real dates.
 const sampleDates = [
   "2023-04-01",
@@ -31,7 +25,7 @@ const getWeekDates = () => {
 
 const HabitCalendar = ({
   habits = sampleHabits,
-  dates = sampleDates,
+  dates = getWeekDates,
   onToggle,
 }) => {
   // onToggle could be a function passed as a prop (or retrieved from a store)
@@ -60,7 +54,7 @@ const HabitCalendar = ({
           <div className="habit-label">{habit.name}</div>
           {dates.map((date) => (
             <div
-              key={date}
+              key={habit.id + date}
               className="cell"
               onClick={() => handleToggle(habit.id, date)}
             >
